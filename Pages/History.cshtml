@@ -1,0 +1,37 @@
+﻿@page
+@model HistoryModel
+@{
+    ViewData["Title"] = "Chat history:";
+}
+<h1>@ViewData["Title"]</h1>
+
+<table class="table shadow-lg text-center table-striped rounded">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ChatHubs[0].User)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ChatHubs[0].Message)
+            </th>
+        </tr>
+    </thead>
+    <tbody class="table shadow-lg text-center rounded">
+
+        @foreach (var item in Model.ChatHubs)
+        {
+
+            @if (item.Registered == "1")
+            {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.User)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Message)
+            </td>
+        </tr>       
+                }
+            }
+    </tbody>
+</table>
